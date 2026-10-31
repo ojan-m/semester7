@@ -1,7 +1,7 @@
 ﻿<?php  
 session_start();
 // skrip koneksi
-$koneksi = new mysqli("localhost", "root", "", "semester7");
+include "../koneksi.php";
 ?>
 
 <!DOCTYPE html>

@@ -1,7 +1,10 @@
-﻿<?php
+﻿/*<?php
 session_start();
+// Set zona waktu ke Indonesia WIB (Jakarta)
+date_default_timezone_set('Asia/Jakarta');
+
 //koneksi kedatabase
-$koneksi = new mysqli("localhost", "root", "", "semester7");
+include "../koneksi.php";
 
 if (!isset($_SESSION['admin']))
   {
@@ -46,7 +49,7 @@ if (!isset($_SESSION['admin']))
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html"><i class="bi bi-cake-fill"></i> Toko Kue</a>
+          <a class="navbar-brand" href="index.php"><i class="bi bi-cake-fill"></i> Toko Kue Seruni 88.</a>
         </div>
         <div
           style="
@@ -56,23 +59,33 @@ if (!isset($_SESSION['admin']))
             font-size: 16px;
           "
         >
-          Last access : 27 sep 2026 &nbsp;
-          <a href="login.html" class="btn btn-danger square-btn-adjust"
-            >Logout</a
-          >
         </div>
       </nav>
-      <!-- /. NAV TOP  -->
+      
+      
+      <!-- NAV SIDEBAR / COLLAPSIBLE MENU -->
       <nav class="navbar-default navbar-side" role="navigation">
-        <div class="sidebar-collapse">
+        <div class="sidebar-collapse collapse navbar-collapse">
           <ul class="nav" id="main-menu">
 
-            <li><a href="index.php"> Home</a></li>
-            <li><a href="index.php?halaman=produk"> Produk</a></li>
-            <li><a href="index.php?halaman=pembelian"> Pembelian</a></li>
-            <li><a href="index.php?halaman=pelanggan"> Pelanggan</a></li>
-            <li><a href="index.php?halaman=logout"> Logout</a></li>
-            
+            <!-- Bagian Profil / Ikon di bawah Logo -->
+            <li class="text-center" style="padding: 25px 0; background: #222; border-bottom: 1px solid #333;">
+              <div style="background: #e74c3c; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px auto; line-height: 60px;">
+                <i class="bi bi-cake2-fill" style="font-size: 30px; color: #ffffff;"></i>
+              </div>
+              <h5 style="color: #ffffff; margin: 0 0 5px 0; font-weight: bold; font-size: 16px;">Administrator</h5>
+              <span style="font-size: 12px; color: #aaaaaa; letter-spacing: 0.5px;">Toko Kue Seruni 88</span>
+            </li>
+
+            <li><a href="index.php"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="index.php?halaman=produk"><i class="fa fa-desktop"></i> Produk</a></li>
+            <li><a href="index.php?halaman=pembelian"><i class="fa fa-shopping-cart"></i> Pembelian</a></li>
+            <li><a href="index.php?halaman=laporan_pembelian"><i class="fa fa-file"></i> Laporan</a></li>
+            <li><a href="index.php?halaman=pelanggan"><i class="fa fa-users"></i> Pelanggan</a></li>
+            <li><a href="index.php?halaman=logout"><i class="fa fa-sign-out"></i> Logout</a></li>
+            <li class="visible-xs visible-sm" style="padding: 15px 20px; color: #777; border-top: 1px solid #e7e7e7; margin-top: 10px; font-size: 13px;">
+              <i class="fa fa-clock-o"></i> Last access : <?php echo date('d M Y | H:i'); ?>
+            </li>
           </ul>
         </div>
       </nav>
@@ -122,6 +135,14 @@ if (!isset($_SESSION['admin']))
             {
               include 'logout.php';
             }
+            elseif ($_GET['halaman']=="pembayaran")
+            {
+              include 'pembayaran.php';
+            }
+            elseif ($_GET['halaman']=="laporan_pembelian")
+            {
+              include 'laporan_pembelian.php';
+            }
           }
           else {
             include'home.php';
@@ -144,5 +165,22 @@ if (!isset($_SESSION['admin']))
     <script src="assets/js/morris/morris.js"></script>
     <!-- CUSTOM SCRIPTS -->
     <script src="assets/js/custom.js"></script>
+    <script>
+      function updateWaktu() {
+        const sekarang = new Date();
+
+        // Format Tanggal
+        const opsi = { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+        const waktuFormatted = sekarang.toLocaleDateString('id-ID', opsi).replace(/\./g, ':');
+
+        document.getElementById('waktu-realtime').innerText = waktuFormatted;
+      }
+
+      // Jalankan fungsi saat pertama dimuat
+      updateWaktu();
+
+      // Perbarui waktu setiap 1000ms (1 detik)
+      setInterval(updateWaktu, 1000);
+    </script>
   </body>
 </html>
