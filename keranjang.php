@@ -29,9 +29,9 @@ if(empty($_SESSION["keranjang"]) OR !isset($_SESSION["keranjang"])) {
 <body>
     <?php include 'menu.php'; ?>
 
-    <section class="konten konten-keranjang">
+    <section class="konten-keranjang">
         <div class="container">
-            <h1>Keranjang belanja</h1>
+            <h1><i data-feather="shopping-cart" style="width: 35px; height: 35px; vertical-align: middle; margin-right: 10px;"></i>Keranjang belanja</h1>
             <hr>
             <table class="table table-bordered">
                 <thead>

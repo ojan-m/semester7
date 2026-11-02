@@ -53,7 +53,7 @@ if ($id_pelanggan_login !==$id_pelanggan_beli) {
         <form method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label>Nama</label>
-                <input type="text" class="form-control" name="name">
+                <input type="text" class="form-control" name="name" value="<?php echo $_SESSION["pelanggan"]["nama_pelanggan"]; ?>" readonly>
             </div>
             <div class="form-group">
                 <label>Bank</label>
@@ -61,7 +61,7 @@ if ($id_pelanggan_login !==$id_pelanggan_beli) {
             </div>
             <div class="form-group">
                 <label>jumlah</label>
-                <input type="jumlah" class="form-control" name="jumlah" min="1">
+                <input type="jumlah" class="form-control" name="jumlah" value="<?php echo $detpem["total_pembelian"]; ?>"readonly>
             </div>
             <div class="form-group">
                 <label>Foto Bukti</label>

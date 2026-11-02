@@ -3,7 +3,7 @@
 $ambil =$koneksi->query("SELECT * FROM pembelian JOIN pelanggan ON pembelian.id_pelanggan=pelanggan.id_pelanggan WHERE pembelian.id_pembelian='$_GET[id]'");
 $detail = $ambil->fetch_assoc();
 ?>
-<pre><?php print_r($detail); ?></pre>
+<!-- <pre><?php print_r($detail); ?></pre> -->
 
 <strong><?php echo $detail['nama_pelanggan']; ?></strong><br>
 <p>
@@ -28,8 +28,10 @@ $detail = $ambil->fetch_assoc();
     </thead>
     <tbody>
         <?php $nomor=1; ?>
+        <?php $total_belanja_produk = 0; ?>
         <?php $ambil=$koneksi->query("SELECT * FROM pembelian_produk JOIN produk ON pembelian_produk.id_produk=produk.id_produk WHERE pembelian_produk.id_pembelian='$_GET[id]'"); ?>
-        <?php while($pecah=$ambil->fetch_assoc()){ ?>
+        <?php while($pecah=$ambil->fetch_assoc()){ 
+            $total_belanja_produk += $pecah['subharga']; ?>
         <tr>
             <td><?php echo $nomor; ?></td>
             <td><?php echo $pecah['nama_produk']; ?></td>
@@ -42,4 +44,18 @@ $detail = $ambil->fetch_assoc();
         <?php $nomor++; ?>
         <?php } ?>
     </tbody>
+    <tfoot>
+                    <tr>
+                        <th colspan="4">Total Belanja Produk:</th>
+                        <th>Rp. <?php echo number_format($total_belanja_produk); ?></th>
+                    </tr>
+                    <tr>
+                        <th colspan="4">Ongkos Kirim (<?php echo $detail['nama_ekspedisi']; ?>):</th>
+                        <th>Rp. <?php echo number_format($detail['tarif']); ?></th>
+                    </tr>
+                    <tr>
+                        <th colspan="4">Total :</th>
+                        <th>Rp. <?php echo number_format($detail['total_pembelian']); ?></th>
+                    </tr>
+                </tfoot>
 </table>

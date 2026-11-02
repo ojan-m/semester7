@@ -293,12 +293,15 @@ body {
   background-color: rgb(180, 20, 20);
 }
 
-.konten-keranjang .konten-checkout,
+.konten-keranjang,
+.konten-checkout,
 .konten-nota,
-.konten-detail .riwayat {
+.konten-detail,
+.riwayat {
   padding-top: 3rem;
   padding-bottom: 4rem;
   color: #131313;
+  margin-top: 60px;
 }
 
 .konten-keranjang h1 {
@@ -306,7 +309,6 @@ body {
   font-weight: 600;
 }
 
-/* TAMBAHKAN KODE INI DI SINI */
 .konten-keranjang table,
 .konten-keranjang th,
 .konten-keranjang td {
@@ -316,11 +318,6 @@ body {
 .konten-keranjang table th,
 .konten-keranjang table td {
   color: #333;
-}
-
-.konten-checkout {
-  padding-top: 10rem;
-  padding-bottom: 4rem;
 }
 
 /* contact */

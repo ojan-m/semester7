@@ -27,9 +27,9 @@ if(!isset($_SESSION["pelanggan"])){
     
     <?php include 'menu.php'; ?>
         
-<section class="konten konten-checkout">
+<section class="konten-checkout">
         <div class="container">
-            <h1>Keranjang Belanja</h1>
+            <h1><i data-feather="shopping-cart" style="width: 35px; height: 35px; vertical-align: middle; margin-right: 10px;"></i>Keranjang belanja</h1>
             <hr>
             <table class="table table-bordered">
                 <thead>

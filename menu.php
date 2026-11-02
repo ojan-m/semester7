@@ -4,7 +4,7 @@
     <div class="navbar-nav">
         <a href="index.php">Home</a>
         <a href="#about">Tentang Kami</a>
-        <a href="#produk">Produk</a>
+        <a href="#produk">Menu</a>
         <!-- jika sudah login ada session pelanggan -->
         <?php if(isset($_SESSION["pelanggan"])): ?>
             <a href="logout.php">Logout</a>

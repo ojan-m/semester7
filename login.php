@@ -65,7 +65,7 @@ if(isset($_POST["login"])) {
     if (isset($_SESSION["keranjang"]) OR !empty($_SESSION["keranjang"])) {
         echo "<script>location='checkout.php';</script>";
     } else {
-        echo "<script>location='riwayat.php';</script>";
+        echo "<script>location='index.php';</script>";
     }
    } else {
     // jika tidak punya akun anda gagal login

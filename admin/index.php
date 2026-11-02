@@ -1,4 +1,4 @@
-﻿/*<?php
+﻿<?php
 session_start();
 // Set zona waktu ke Indonesia WIB (Jakarta)
 date_default_timezone_set('Asia/Jakarta');
