@@ -15,6 +15,9 @@
         <a href="#contact">Kontak</a>
     </div>
     <div class="navbar-extra">
+        <a href="riwayat.php" title="Riwayat Belanja">
+            <i data-feather="clock"></i>
+        </a>
         <a href="keranjang.php" id="shopping-cart"><i data-feather="shopping-cart"></i></a>
         <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
     </div>

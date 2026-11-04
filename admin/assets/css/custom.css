@@ -11,27 +11,43 @@
 /*==============================================
     GENERAL  STYLES    
     =============================================*/
+html,
 body {
+  height: 100%;
+  overflow: hidden;
   font-family: "Open Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
 }
 
 #wrapper {
-  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
   background: #202020;
 }
 
 #page-wrapper {
-  margin: 0 0 0 260px;
+  margin-left: 0;
+  margin-top: 60;
+  width: calc(100% - 260px);
+  height: calc(100vh - 60px);
   padding: 15px 30px;
-  position: relative;
+  position: absolute;
+  top: 60px;
+  bottom: 0;
+  left: 260px;
+  right: 0;
+  overflow-y: auto;
   z-index: 1;
 }
 #page-inner {
   width: 100%;
-  margin: 10px 20px 10px 0px;
-  background-color: #fff !important;
-  padding: 10px;
-  min-height: 1200px;
+  margin: 0;
+  background-color: #fff;
+  padding: 20px;
+  min-height: auto;
 }
 
 .text-center {
@@ -201,9 +217,11 @@ p {
 
 .navbar-cls-top {
   background: #333333;
-  border: none;
-  min-height: 60px;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
   z-index: 1000;
 }
 
@@ -228,7 +246,7 @@ p {
 }
 
 .active-menu {
-  background-color: #c90000 !important;
+  background-color: #c90000;
 }
 
 .arrow {
@@ -311,11 +329,13 @@ p {
   left: 40px;
 }
 .navbar-side {
-  z-index: 999;
-  position: absolute;
-  width: 260px;
-  top: 70px;
+  position: fixed;
+  top: 60px;
+  bottom: 0;
   left: 0;
+  width: 260px;
+  z-index: 8888;
+  overflow-y: auto;
 }
 
 .navbar-cls-top .navbar-brand:hover {
@@ -361,7 +381,7 @@ p {
 /* Membuat teks deskripsi bisa turun ke bawah dan tidak memaksa tabel terlalu lebar */
 .table td,
 .table th {
-  white-space: normal !important;
+  white-space: normal;
 }
 
 /* Batasi lebar minimum kolom deskripsi agar tidak terlalu melebar */
@@ -371,25 +391,56 @@ p {
 }
 
 /*==============================================
-    MEDIA QUERIES     
+    MEDIA QUERIES (RESPONSIF)     
     =============================================*/
 
-/* Responsif untuk Tampilan Layar HP/Mobile */
+/* 1. Pengaturan untuk Desktop / Laptop (Layar besar di atas 992px) */
+@media (min-width: 992px) {
+  #page-wrapper {
+    position: absolute;
+    top: 60px;
+    bottom: 0;
+    left: 260px;
+    right: 0;
+    margin: 0;
+    padding: 15px 30px;
+    overflow-y: auto;
+    background: #f3f3f3;
+    z-index: 1;
+  }
+
+  .navbar-side {
+    position: fixed;
+    top: 60px;
+    bottom: 0;
+    left: 0;
+    width: 260px;
+    z-index: 999;
+    overflow-y: auto;
+  }
+}
+
+/* 2. Pengaturan untuk Tablet dan Handphone (Layar 991px ke bawah) */
 @media (max-width: 991px) {
-  /* Pastikan seluruh area atas navbar menjadi satu warna merah yang sama */
   .navbar-cls-top {
-    background: #c90000 !important;
+    background: #c90000;
     display: flex;
     justify-content: space-between;
     align-items: center;
     min-height: 60px;
     padding: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
   }
 
   .navbar-header {
-    background: #c90000 !important;
-    width: 100% !important;
-    float: none !important;
+    background: #c90000;
+    width: 100%;
+    float: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -397,54 +448,56 @@ p {
     padding: 0 10px;
   }
 
-  /* Beri jarak dari tepi kiri layar (tambah padding-left) */
   .navbar-cls-top .navbar-brand {
-    width: auto !important;
-    background: transparent !important;
-    float: left !important;
+    width: auto;
+    background: transparent;
+    float: left;
     height: 60px;
     line-height: 30px;
-    padding: 15px 0px !important; /* Angka 25px terakhir adalah jarak dari tepi kiri */
+    padding: 15px 0px;
   }
 
-  /* Beri jarak dari tepi kanan layar (tambah margin-right) */
   .navbar-cls-top .navbar-toggle {
-    margin-top: 0 !important;
-    margin-left: auto !important;
-    margin-right: 0px !important; /* Angka 25px adalah jarak dari tepi kanan layar */
+    margin-top: 13px;
+    margin-left: auto;
+    margin-right: 0px;
     float: right;
     background-color: transparent;
     border-color: #fff;
+    z-index: 1001;
   }
-}
-@media (max-width: 768px) {
-  .navbar-cls-top .navbar-brand {
-    width: auto;
-    float: left;
+
+  #page-wrapper {
+    position: absolute;
+    top: 60px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    margin: 0;
+    padding: 15px;
+    overflow-y: auto;
+    background: #f3f3f3;
+    z-index: 1;
   }
+
   .navbar-side {
     position: relative;
     width: 100%;
-    top: 0;
+    top: 60px;
+    left: 0;
+    background: #202020;
+    z-index: 999;
+    border: none;
   }
-  #page-wrapper {
+
+  .navbar-side .sidebar-collapse {
+    background: #202020;
+  }
+
+  #page-inner {
+    width: 100%;
     margin: 0;
-  }
-}
-@media (min-width: 768px) {
-  #page-wrapper {
-    margin: 0 0 0 260px;
-    padding: 15px 30px;
-    min-height: 1200px;
-  }
-
-  .navbar-side {
-    z-index: 1;
-    position: absolute;
-    width: 260px;
-  }
-
-  .navbar {
-    border-radius: 0px;
+    padding: 15px;
   }
 }

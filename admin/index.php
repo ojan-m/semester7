@@ -65,7 +65,7 @@ if (!isset($_SESSION['admin']))
       
       <!-- NAV SIDEBAR / COLLAPSIBLE MENU -->
       <nav class="navbar-default navbar-side" role="navigation">
-        <div class="sidebar-collapse collapse navbar-collapse">
+        <div class="sidebar-collapse navbar-collapse">
           <ul class="nav" id="main-menu">
 
             <!-- Bagian Profil / Ikon di bawah Logo -->
@@ -114,10 +114,6 @@ if (!isset($_SESSION['admin']))
             elseif ($_GET['halaman']=="tambahproduk")
             {
               include 'tambahproduk.php';
-            }
-            elseif ($_GET['halaman']=="tambahpelanggan")
-            {
-              include 'tambahpelanggan.php';
             }
             elseif ($_GET['halaman']=="hapusproduk")
             {
@@ -181,6 +177,12 @@ if (!isset($_SESSION['admin']))
 
       // Perbarui waktu setiap 1000ms (1 detik)
       setInterval(updateWaktu, 1000);
+
+      $(document).ready(function () {
+          $('.navbar-toggle').click(function () {
+              $('.navbar-side').slideToggle();
+          });
+      });
     </script>
   </body>
 </html>

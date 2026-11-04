@@ -7,6 +7,7 @@
                 <th>No</th>
                 <th>Nama</th>
                 <th>Email</th>
+                <th>Alamat</th>
                 <th>Telepon</th>
                 <th>Aksi</th>
             </tr>
@@ -19,6 +20,7 @@
                 <td><?php echo $nomor; ?></td>
                 <td><?php echo $pecah['nama_pelanggan']; ?></td>
                 <td><?php echo $pecah['email_pelanggan']; ?></td>
+                <td><?php echo $pecah['alamat_pelanggan']; ?></td>
                 <td><?php echo $pecah['telepon_pelanggan']; ?></td>
                 <td>
                     <a href="index.php?halaman=hapuspelanggan&id=<?php echo $pecah['id_pelanggan']; ?>" class="btn btn-danger">hapus</a>
@@ -30,4 +32,4 @@
     </table>
 </div>
 
-<a href="index.php?halaman=tambahpelanggan" class="btn btn-primary">Tambah Data</a>
+<!-- <a href="index.php?halaman=tambahpelanggan" class="btn btn-primary">Tambah Data</a> -->

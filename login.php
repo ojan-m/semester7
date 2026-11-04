@@ -16,11 +16,15 @@ include 'koneksi.php';
     <link rel="stylesheet" href="admin/assets/css/style.css">
 </head>
 <body>
-    <?php include 'menu.php'; ?>
+    <div style="text-align: center; margin-top: 3rem; margin-bottom: 0rem;">
+        <h1 style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 3.5rem; color: #333; margin: 0;">
+            <span style="font-style: italic; color: #e67e22; font-weight: 900;">Toko Kue</span> 
+            <span style="font-weight: 900; color: #2c3e50;">Seruni 88.</span>
+        </h1>
+    </div>
 
-    <div class="container" style= "margin-top: 2rem;">
-        <div class="row">
-            <div class="col-md-4">
+    <div class="container" style="margin-top: 5rem; display: flex; justify-content: center; align-items: flex-start; min-height: auto; padding-bottom: 3rem;">
+        <div style="width: 100%; max-width: 450px; padding: 0 15px;">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title">Login Pelanggan</h3>
@@ -36,6 +40,10 @@ include 'koneksi.php';
                                 <input type="password" class="form-control" name="password">
                             </div>
                             <button class="btn btn-primary" name="login">Login</button>
+                            <div class="text-center" style="display: flex; justify-content: space-between; margin-top: 10px;">
+                                <!-- <a href="lupa_password.php">Lupa Password?</a> -->
+                                <a href="daftar.php">Belum punya akun? Daftar</a>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -68,10 +76,10 @@ if(isset($_POST["login"])) {
         echo "<script>location='index.php';</script>";
     }
    } else {
-    // jika tidak punya akun anda gagal login
-    echo "<script>alert('Anda gagal login dan lakukan pendaftaran terlebih dahulu');</script>";
-    echo "<script>location='daftar.php';</script>";
-   }
+    // jika gagal login, tetap di halaman login.php dan beri peringatan
+        echo "<script>alert('Gagal login, Email atau Password Anda salah!');</script>";
+        echo "<script>location='login.php';</script>";
+    }
 }
 
 ?>

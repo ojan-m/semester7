@@ -3,8 +3,9 @@
     <a href="#" class="navbar-logo">Toko Kue <span>Seruni 88.</span></a>
     <div class="navbar-nav">
         <!-- Menu Home dan Checkout dibuat tidak bisa diklik sesuai permintaan sebelumnya -->
-        <a href="#" onclick="return false;" style="pointer-events: none; color: gray; cursor: default;">Home</a>
-        
+        <!-- <a href="#" onclick="return false;" style="pointer-events: none; color: gray; cursor: default;">Home</a>
+         -->
+        <a href="index.php">Home</a>
         <!-- Menu Riwayat menggantikan Tentang Kami dan Produk khusus di nota -->
         <a href="riwayat.php">Riwayat</a>
 

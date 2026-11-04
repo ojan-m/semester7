@@ -44,9 +44,21 @@ if (!isset($_SESSION["pelanggan"]) OR empty($_SESSION["pelanggan"])) {
                 </thead>
                 <tbody>
                     <?php
-                    $nomor=1;
-                    // mendapatkan id_pelanggan yang login
-                    $id_pelanggan = $_SESSION["pelanggan"]['id_pelanggan'];
+                    // Mendapatkan id_pelanggan yang login secara benar dari array sesi
+                    $id_pelanggan = $_SESSION["pelanggan"]["id_pelanggan"];
+
+                    // Cek apakah pelanggan sudah pernah melakukan pembelian atau belum
+                    $cek_pembelian = $koneksi->query("SELECT * FROM pembelian WHERE id_pelanggan='$id_pelanggan'");
+                    $jumlah_transaksi = $cek_pembelian->num_rows;
+
+                    // Jika belum ada pembelian sama sekali, alihkan kembali dan beri peringatan
+                    if ($jumlah_transaksi == 0) {
+                        echo "<script>alert('Anda belum memiliki riwayat belanja. Silakan lakukan pembelian terlebih dahulu!');</script>";
+                        echo "<script>location='index.php';</script>";
+                        exit();
+                    }
+
+                    $nomor = 1;
                     $ambil = $koneksi->query("SELECT * FROM pembelian WHERE id_pelanggan='$id_pelanggan'");
                     while($pecah = $ambil->fetch_assoc()) {
                     ?>
@@ -59,7 +71,7 @@ if (!isset($_SESSION["pelanggan"]) OR empty($_SESSION["pelanggan"])) {
                                 Resi: <?php echo $pecah['resi_pengiriman']; ?>
                             <?php endif ?>
                         </td>
-                        <td><?php echo number_format($pecah["total_pembelian"])  ?></td>
+                        <td>Rp. <?php echo number_format($pecah["total_pembelian"])  ?></td>
                         <td>
                             <a href="index.php" class="btn btn-primary">Beli</a>
                         </td>
