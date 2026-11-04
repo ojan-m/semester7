@@ -3,7 +3,7 @@
     <a href="#" class="navbar-logo">Toko Kue <span>Seruni 88.</span></a>
     <div class="navbar-nav">
         <!-- Menu Home dibuat tidak bisa diklik -->
-        <a href="#" onclick="return false;" style="pointer-events: none; color: gray; cursor: default;">Home</a>
+        <a href="index.php">Home</a>
         
         <!-- Menu Riwayat (aktif/tidak bisa diklik karena sedang berada di halaman riwayat) -->
         <a href="#" onclick="return false;" style="pointer-events: none; color: gray; cursor: default;">Riwayat</a>
