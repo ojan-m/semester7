@@ -9,7 +9,7 @@ include "../koneksi.php";
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Toko Kue</title>
+    <title>login admin</title>
 	<!-- BOOTSTRAP STYLES-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
      <!-- FONTAWESOME STYLES-->
@@ -21,22 +21,17 @@ include "../koneksi.php";
 
 </head>
 <body>
-    <div class="container">
-        <div class="row text-center ">
-            <div class="col-md-12">
-                <br /><br />
-                <h2> Admin : Login</h2>
-               
-                <h5>( Login yourself to get access )</h5>
-                 <br />
-            </div>
-        </div>
-         <div class="row ">
-               
+    <div style="text-align: center; margin-top: 9rem; margin-bottom: 0rem;">
+        <h1 style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 3.5rem; color: #333; margin: 0;">
+            <span style="font-style: italic; color: #e67e22; font-weight: 900;">Toko Kue</span> 
+            <span style="font-weight: 900; color: #2c3e50;">Seruni 88.</span>
+        </h1>
+    </div>
+         <div class="row" style="margin-top: 5rem;">
                   <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                        <strong>   Enter Details To Login </strong>  
+                        <strong>   Login Admin</strong>  
                             </div>
                             <div class="panel-body">
                                 <form role="form" method="post">
@@ -58,9 +53,7 @@ include "../koneksi.php";
                                             </span>
                                         </div>
                                      
-                                    <button class="btn btn-primary" name="login">Login</button>
-                                    <hr />
-                                    Not register ? <a href="registeration.html" >click here </a> 
+                                    <button class="btn btn-primary" name="login">Login</button> 
                                     </form>
                                     <?php
                                     if (isset($_POST['login']))

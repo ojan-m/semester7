@@ -42,7 +42,7 @@ if (!isset($_SESSION['admin']))
             type="button"
             class="navbar-toggle"
             data-toggle="collapse"
-            data-target=".sidebar-collapse"
+            data-target=".navbar-side"
           >
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
@@ -64,7 +64,7 @@ if (!isset($_SESSION['admin']))
       
       
       <!-- NAV SIDEBAR / COLLAPSIBLE MENU -->
-      <nav class="navbar-default navbar-side" role="navigation">
+      <nav class="navbar-default navbar-side " role="navigation">
         <div class="sidebar-collapse navbar-collapse">
           <ul class="nav" id="main-menu">
 
@@ -178,9 +178,17 @@ if (!isset($_SESSION['admin']))
       // Perbarui waktu setiap 1000ms (1 detik)
       setInterval(updateWaktu, 1000);
 
-      $(document).ready(function () {
-          $('.navbar-toggle').click(function () {
-              $('.navbar-side').slideToggle();
+    $(document).ready(function () {
+          $('.navbar-toggle').click(function (e) {
+              e.preventDefault();
+              $('.navbar-side').toggleClass('menu-open');
+          });
+
+          // Reset status saat layar kembali ke mode laptop
+          $(window).resize(function () {
+              if ($(window).width() >= 992) {
+                  $('.navbar-side').removeClass('menu-open').removeAttr('style');
+              }
           });
       });
     </script>

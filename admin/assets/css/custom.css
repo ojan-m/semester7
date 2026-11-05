@@ -417,6 +417,7 @@ p {
     width: 260px;
     z-index: 999;
     overflow-y: auto;
+    transform: translateX(0);
   }
 }
 
@@ -489,6 +490,11 @@ p {
     background: #202020;
     z-index: 999;
     border: none;
+    transition: max-height 0.3 ease-in-out;
+  }
+
+  .navbar-side.menu-open {
+    max-height: 100px;
   }
 
   .navbar-side .sidebar-collapse {
