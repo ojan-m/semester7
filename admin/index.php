@@ -42,7 +42,7 @@ if (!isset($_SESSION['admin']))
             type="button"
             class="navbar-toggle"
             data-toggle="collapse"
-            data-target=".navbar-side"
+            data-target=".sidebar-collapse"
           >
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
@@ -179,18 +179,13 @@ if (!isset($_SESSION['admin']))
       setInterval(updateWaktu, 1000);
 
     $(document).ready(function () {
-          $('.navbar-toggle').click(function (e) {
-              e.preventDefault();
-              $('.navbar-side').toggleClass('menu-open');
-          });
-
-          // Reset status saat layar kembali ke mode laptop
-          $(window).resize(function () {
-              if ($(window).width() >= 992) {
-                  $('.navbar-side').removeClass('menu-open').removeAttr('style');
-              }
-          });
+      // Reset state collapse saat layar diperbesar ke mode desktop (>= 992px)
+      $(window).resize(function () {
+          if ($(window).width() >= 992) {
+              $('.navbar-side .navbar-collapse').removeClass('in').css('height', '');
+          }
       });
+    });
     </script>
   </body>
 </html>
