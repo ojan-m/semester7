@@ -128,7 +128,7 @@ if(!isset($_SESSION["pelanggan"])){
                 }
 
                 //menyimpan data ketable pembelian
-                $koneksi->query("INSERT INTO pembelian(id_pelanggan,id_ongkir, tanggal_pembelian, total_pembelian, nama_ekspedisi, tarif, alamat_pengiriman) VALUES ('$id_pelanggan', '$id_ongkir', '$tanggal_pembelian', '$total_pembelian', '$nama_ekspedisi', '$tarif', '$alamat_pengiriman')");
+                $koneksi->query("INSERT INTO pembelian(id_pelanggan,id_ongkir, tanggal_pembelian, total_pembelian, nama_ekspedisi, tarif, alamat_pengiriman, resi_pengiriman) VALUES ('$id_pelanggan', '$id_ongkir', '$tanggal_pembelian', '$total_pembelian', '$nama_ekspedisi', '$tarif', '$alamat_pengiriman', '')");
 
                 //mendapatkan id_pembelian yang telah terjadi
                 $id_pembelian_barusan = $koneksi->insert_id;
