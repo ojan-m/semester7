@@ -39,7 +39,6 @@ if (isset($_POST["kirim"])) {
                 <option value="barang dikirim"<?php echo $status=="barang dikirim"?"selected":""; ?>>Barang dikirim</option>
                 <option value="sudah kirim pembayaran" <?php echo $status=="sudah kirim pembayaran"?"selected":""; ?> >Sudah kirim pembayaran</option>
                 <option value="pending" <?php echo $status=="pending"?"selected":""; ?> >Pending</option>
-                <option value="barang sampai" <?php echo $status=="barang sampai"?"selected":""; ?> >Barang sampai</option>
             </select>
         </div>
         <div class="col-md-4">
